@@ -39,4 +39,15 @@ class StringCalculatorTest {
         var calculator = new StringCalculator();
         assertEquals(6,calculator.add("//;\n;1;2;3"));
     }
+    @Test
+    void Negativenumbernotallowed() throws Exception {
+
+        Exception exception = assertThrows(Exception.class, () -> {
+            new StringCalculator().add("10,-5");
+        });
+        String expectedMessage = "negatives not allowed-"+"-5";
+        String actualMessage = exception.getMessage();
+
+        assertTrue(actualMessage.contains(expectedMessage));
+    }
 }

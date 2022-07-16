@@ -25,6 +25,9 @@ public class StringCalculator {
                      throw new Exception("invalid input");
                  }
                  num_arr[i] = Integer.parseInt(string_arr[i]);
+                 if(num_arr[i]<0){
+                     throw new Exception("negatives not allowed-"+string_arr[i]);
+                 }
              }
              int sum = 0;
              for(int e:num_arr){
