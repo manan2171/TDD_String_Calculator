@@ -2,7 +2,14 @@ import java.lang.reflect.Array;
 
 public class StringCalculator {
     public int add(String string_number) throws Exception {
-        string_number = string_number.replace("\n",",");
+        var string_delimiter = ",";
+        if (string_number.contains("//")){
+            int index = string_number.indexOf("\n")+1;
+
+            string_delimiter=string_number.substring(2,index-1);
+            string_number = string_number.substring(index+1);
+        }
+        string_number = string_number.replace("\n",string_delimiter);
         if(string_number==""){
             return 0;
         }
@@ -10,7 +17,7 @@ public class StringCalculator {
             return Integer.parseInt(string_number);
         }
         else{
-            String[] string_arr = string_number.split(",",0);
+            String[] string_arr = string_number.split(string_delimiter,0);
              int size = string_arr.length;
              int[] num_arr = new int [size];
              for(int i=0; i<size; i++){

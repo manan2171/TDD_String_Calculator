@@ -34,4 +34,9 @@ class StringCalculatorTest {
 
         assertTrue(actualMessage.contains(expectedMessage));
     }
+    @Test
+    void singledelimiter() throws Exception{
+        var calculator = new StringCalculator();
+        assertEquals(6,calculator.add("//;\n;1;2;3"));
+    }
 }
