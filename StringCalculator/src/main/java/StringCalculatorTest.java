@@ -50,4 +50,9 @@ class StringCalculatorTest {
 
         assertTrue(actualMessage.contains(expectedMessage));
     }
+    @Test
+    void numberlimit() throws Exception{
+        var calculator = new StringCalculator();
+        assertEquals(5,calculator.add("5,1001"));
+    }
 }

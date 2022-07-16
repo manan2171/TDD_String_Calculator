@@ -31,7 +31,10 @@ public class StringCalculator {
              }
              int sum = 0;
              for(int e:num_arr){
-                 sum = sum+e;
+                if(e>1000){
+                    continue;
+                }
+                sum = sum+e;
              }
 
              return sum;
