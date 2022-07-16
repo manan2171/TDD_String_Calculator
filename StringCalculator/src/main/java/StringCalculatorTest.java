@@ -24,7 +24,7 @@ class StringCalculatorTest {
         assertEquals(23,calculator.add("10\n5,8"));
     }
     @Test
-    void invalidinput() throws Exception{
+    void Invalidinput() throws Exception{
 
         Exception exception = assertThrows(Exception.class, () -> {
             new StringCalculator().add("10,\n5");
@@ -35,7 +35,7 @@ class StringCalculatorTest {
         assertTrue(actualMessage.contains(expectedMessage));
     }
     @Test
-    void singledelimiter() throws Exception{
+    void Singledelimiter() throws Exception{
         var calculator = new StringCalculator();
         assertEquals(6,calculator.add("//;\n;1;2;3"));
     }
@@ -43,20 +43,20 @@ class StringCalculatorTest {
     void Negativenumbernotallowed() throws Exception {
 
         Exception exception = assertThrows(Exception.class, () -> {
-            new StringCalculator().add("10,-5");
+            new StringCalculator().add("10,-5,-100");
         });
-        String expectedMessage = "negatives not allowed-"+"-5";
+        String expectedMessage = "negatives not allowed-"+",-5,-100";
         String actualMessage = exception.getMessage();
 
         assertTrue(actualMessage.contains(expectedMessage));
     }
     @Test
-    void numberlimit() throws Exception{
+    void Numberlimit() throws Exception{
         var calculator = new StringCalculator();
         assertEquals(5,calculator.add("5,1001"));
     }
     @Test
-    void largedelimiter() throws Exception{
+    void Largedelimiter() throws Exception{
         var calculator = new StringCalculator();
         assertEquals(9,calculator.add("//[***]\n2***3***4"));
     }

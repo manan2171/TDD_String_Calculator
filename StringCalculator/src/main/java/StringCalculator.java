@@ -41,14 +41,18 @@ public class StringCalculator {
             String[] string_arr = string_number.split(string_delimiter,0);
              int size = string_arr.length;
              int[] num_arr = new int [size];
+             var string_nev = "";
              for(int i=0; i<size; i++){
                  if(string_arr[i]==""){
                      throw new Exception("invalid input");
                  }
                  num_arr[i] = Integer.parseInt(string_arr[i]);
                  if(num_arr[i]<0){
-                     throw new Exception("negatives not allowed-"+string_arr[i]);
+                     string_nev = string_nev + "," + string_arr[i];
                  }
+             }
+             if(!string_nev.isEmpty()){
+                 throw new Exception("negatives not allowed-"+string_nev);
              }
              int sum = 0;
              for(int e:num_arr){
