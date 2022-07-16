@@ -55,4 +55,9 @@ class StringCalculatorTest {
         var calculator = new StringCalculator();
         assertEquals(5,calculator.add("5,1001"));
     }
+    @Test
+    void largedelimiter() throws Exception{
+        var calculator = new StringCalculator();
+        assertEquals(9,calculator.add("//[***]\n2***3***4"));
+    }
 }
